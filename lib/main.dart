@@ -1,7 +1,7 @@
 
-import 'package:appproj_integrador/screens/tela2.dart';
-import 'package:appproj_integrador/screens/tela3.dart';
-import 'package:appproj_integrador/screens/tela4.dart';
+import 'package:appproj_integrador/screens/screen_monitoramento.dart';
+import 'package:appproj_integrador/screens/screen_acionamento.dart';
+import 'package:appproj_integrador/screens/screen_chatbot.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -59,7 +59,7 @@ class DashboardScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(12),
               child: Text(
-                'App Agro IoT',
+                'AGROTECH Solutions',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w800,

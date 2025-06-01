@@ -121,7 +121,7 @@ Future<void> _ligarBomba() async {
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: Colors.blue),
                   ),
                 ),
               ),

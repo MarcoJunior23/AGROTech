@@ -12,23 +12,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _controller = TextEditingController();
 
-  // cria lista com mensagens
   final List<Map<String, dynamic>> _messages = [
-    /*{
-      'text': "Tipos de solos agricola",
-      'isMe': true,
-      'time': "5:20 PM",
-    },
-    {'text': 'Calcario, Argiloso', 'isMe': true, 'time': '5:18 PM'},
-    {
-      'text': 'Qual a melhor semente para plantar em maio',
-      'isMe': false,
-      'time': '5:20'
-    },
-    {'text': 'Agro IoT', 'isMe': false, 'time': '5:22 PM'},
-    {'text': 'Chatbot', 'isMe': false, 'time': '5:22 PM'},
-    {'text': 'ChatBot', 'isMe': false, 'time': '5:30 PM'}
-    */
   ];
 
   void _sendMessage() async {
@@ -108,11 +92,11 @@ class _ChatScreenState extends State<ChatScreen> {
             child: Icon(Icons.person),
           ),
           title: Text(
-            'Senai',
+            'Usuário',
             style: TextStyle(color: Colors.white),
           ),
         ),
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.black,
       ),
       body: Column(
         children: [
@@ -143,13 +127,13 @@ class _ChatScreenState extends State<ChatScreen> {
                     onPressed: _sendMessage,
                     icon: Icon(
                       Icons.send,
-                      color: Colors.teal,
+                      color: Colors.black,
                     )),
                 IconButton(
                     onPressed: _limparMessages,
                     icon: Icon(
                       Icons.clear,
-                      color: Colors.teal,
+                      color: Colors.black,
                     )),
               ],
             ),
