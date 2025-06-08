@@ -29,7 +29,7 @@ class DashboardScreen extends StatelessWidget {
             DrawerHeader(
                 decoration: BoxDecoration(color: const Color.fromARGB(255, 0, 0, 0)),
                 child: Text(
-                  'Menu',
+                  'Menu de navegação',	
                   style: TextStyle(color: Colors.white),
                 )),
             ListTile(
@@ -45,7 +45,7 @@ class DashboardScreen extends StatelessWidget {
 
       appBar: AppBar(
         // atribuindo cor ao appbar
-        backgroundColor: Colors.red,
+        backgroundColor: const Color.fromARGB(255, 105, 105, 105),
         elevation: 5,
         iconTheme: IconThemeData(color: Colors.white),
         // centraliza o titulo do aplicativo
@@ -53,7 +53,7 @@ class DashboardScreen extends StatelessWidget {
         title: Row(
           children: [
             Image.asset(
-              'images/senai.png',
+              'images/agrotech.png',
               height: 40,
             ),
             Padding(
@@ -70,10 +70,10 @@ class DashboardScreen extends StatelessWidget {
             Spacer(),
             // permite colocar a foto do usuario logado por exemplo
             CircleAvatar(
-              backgroundColor: Colors.brown[100],
+              backgroundColor: Colors.white,
               child: Icon(
-                Icons.person,
-                color: Colors.brown,
+                Icons.person_outline_sharp,
+                color: Colors.black,
               ),
             ),
           ],
@@ -86,8 +86,8 @@ class DashboardScreen extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: TextField(
               decoration: InputDecoration(
-                  hintText: 'Buscar ...',
-                  prefixIcon: Icon(Icons.search),
+                  hintText: 'Buscar',
+                  prefixIcon: Icon(Icons.search_sharp),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30))),
             ),
@@ -98,7 +98,7 @@ class DashboardScreen extends StatelessWidget {
 
           // Cria botoes em Card
           _DashboardButton(
-              icon: Icons.analytics_outlined,
+              icon: Icons.assessment_outlined,
               label: 'Monitoramento',
               onTap: () {
                 Navigator.push(
@@ -111,7 +111,7 @@ class DashboardScreen extends StatelessWidget {
             height: 10,
           ),
           _DashboardButton(
-              icon: Icons.settings_remote_outlined,
+              icon: Icons.settings_remote_sharp,
               label: 'Sistema de controle',
               onTap: () {
                 Navigator.push(context,
@@ -122,7 +122,7 @@ class DashboardScreen extends StatelessWidget {
             height: 10,
           ),
           _DashboardButton(
-              icon: Icons.smart_toy_outlined, label: 'Chatbot', onTap: () {
+              icon: Icons.smart_toy_rounded, label: 'Chatbot', onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context)=>ChatScreen()));
               }),
@@ -132,9 +132,9 @@ class DashboardScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
         selectedItemColor: Colors.white,
-        backgroundColor: Colors.red[900],
+        backgroundColor: const Color.fromARGB(255, 105, 105, 105),
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: ''),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: ''),
         ],
       ),
@@ -170,7 +170,7 @@ class _DashboardButton extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: Colors.brown,
+                color: Colors.black,
                 size: 40,
               ),
               SizedBox(
@@ -178,7 +178,7 @@ class _DashboardButton extends StatelessWidget {
               ),
               Text(
                 label,
-                style: TextStyle(fontSize: 18, color: Colors.brown),
+                style: TextStyle(fontSize: 18, color: Colors.black),
               )
             ],
           ),

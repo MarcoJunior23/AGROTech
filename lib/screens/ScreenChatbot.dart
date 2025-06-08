@@ -47,7 +47,8 @@ class _ChatScreenState extends State<ChatScreen> {
         print("Resposta a API: $decoded");
         final botReply = decoded["outputs"]?[0]?["outputs"]?[0]?["results"]
                 ?["message"]?["text"] ??
-            "Não consegui entender";
+            "Não entendi sua mensagem";
+            // adiciona a resposta do bot na lista de mensagens
             setState(() {
               _messages.add({
                'text':botReply,
@@ -86,18 +87,20 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: ListTile(
-          contentPadding: EdgeInsets.zero,
-          leading: CircleAvatar(
-            backgroundColor: Colors.white,
-            child: Icon(Icons.person),
-          ),
-          title: Text(
-            'AGROTECH Solutions',
-            style: TextStyle(color: Colors.white),
-          ),
+        backgroundColor: const Color.fromARGB(255, 105, 105, 105),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'AGROTECH Solutions',
+              style: TextStyle(color: Colors.white),
+            ),
+            CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Icon(Icons.person_outline_sharp, color: Colors.black),
+            ),
+          ],
         ),
-        backgroundColor: Colors.brown,
       ),
       body: Column(
         children: [

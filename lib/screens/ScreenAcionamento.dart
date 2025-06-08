@@ -65,8 +65,6 @@ Future<void> _ligarBomba() async {
       print("Erro na requisição: $e");
     }
   }
-
-
   Future<void> _desligarBomba() async {
     try {
       final response = await http.post(
@@ -100,72 +98,133 @@ Future<void> _ligarBomba() async {
             onPressed: () => Navigator.pop(context),
             icon: Icon(
               Icons.arrow_back,
-              color: Colors.brown,
+              color: Colors.black,
             ),
           ),
           title: Text(
             'Acionamento',
-            style: TextStyle(color: Colors.brown, fontWeight: FontWeight.bold),
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
         ),
         // Widget novo Listview.builder
         body: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 200,
-                  height: 200,
-                  color: status_cor,
-                  child: Text(
-                    "Bomba de irrigação",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    // Ícone de bomba de irrigação
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: status_cor.withOpacity(0.2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: status_cor.withOpacity(0.3),
+                            blurRadius: 16,
+                            spreadRadius: 2,
+                          ),
+                        ],
+                      ),
+                      padding: EdgeInsets.all(32),
+                      child: Icon(
+                        Icons.water, // Ícone de bomba de irrigação
+                        size: 80,
+                        color: status_cor,
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          onPressed: _ligarBomba,
+                          icon: Icon(Icons.power_settings_new),
+                          label: Text('Ligar'),
+                        ),
+                        SizedBox(width: 16),
+                        ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          onPressed: _desligarBomba,
+                          icon: Icon(Icons.power_off),
+                          label: Text('Desligar'),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blueGrey,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                      ),
+                      onPressed: _leitura,
+                      icon: Icon(Icons.refresh),
+                      label: Text('Leitura'),
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.brown,
-                      foregroundColor: Colors.white),
-                  onPressed: _ligarBomba,
-                  child: Text('Ligar bomba'),
-                ),
+              SizedBox(height: 24),
+              // Parâmetros em cards
+              Wrap(
+                spacing: 16,
+                runSpacing: 16,
+                children: [
+                  _ParametroCard(label: 'Temperatura', value: temperatura?.toString() ?? '-'),
+                  _ParametroCard(label: 'Umidade', value: umidade?.toString() ?? '-'),
+                  _ParametroCard(label: 'Umidade Solo', value: sensorUmidSolo?.toString() ?? '-'),
+                  _ParametroCard(label: 'pH', value: pH?.toString() ?? '-'),
+                ],
               ),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.brown,
-                      foregroundColor: Colors.white),
-                  onPressed: _desligarBomba,
-                  child: Text('Desligar bomba'),
-                ),
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.brown,
-                      foregroundColor: Colors.white),
-                  onPressed: _leitura,
-                  child: Text('Leitura'),
-                ),
-              ),
-              Text("Temperatura: $temperatura"),
-              Text("Umidade: $umidade"),
-              Text("Sensor umidade solo: $sensorUmidSolo"),
-              Text("pH: $pH"),
             ],
           ),
         ));
+  }
+}
+
+// Card customizado para exibir parâmetros
+class _ParametroCard extends StatelessWidget {
+  final String label;
+  final String value;
+  const _ParametroCard({required this.label, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Container(
+        width: 130,
+        padding: EdgeInsets.symmetric(vertical: 18, horizontal: 12),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(label, style: TextStyle(fontWeight: FontWeight.bold)),
+            SizedBox(height: 8),
+            Text(value, style: TextStyle(fontSize: 18, color: Colors.teal)),
+          ],
+        ),
+      ),
+    );
   }
 }
