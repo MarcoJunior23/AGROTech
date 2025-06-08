@@ -59,7 +59,7 @@ class DashboardScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(12),
               child: Text(
-                'App Agro IoT',
+                'AGROTECH Solutions',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w800,

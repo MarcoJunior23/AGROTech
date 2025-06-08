@@ -14,27 +14,12 @@ class _ChatScreenState extends State<ChatScreen> {
 
   // cria lista com mensagens
   final List<Map<String, dynamic>> _messages = [
-    /*{
-      'text': "Tipos de solos agricola",
-      'isMe': true,
-      'time': "5:20 PM",
-    },
-    {'text': 'Calcario, Argiloso', 'isMe': true, 'time': '5:18 PM'},
-    {
-      'text': 'Qual a melhor semente para plantar em maio',
-      'isMe': false,
-      'time': '5:20'
-    },
-    {'text': 'Agro IoT', 'isMe': false, 'time': '5:22 PM'},
-    {'text': 'Chatbot', 'isMe': false, 'time': '5:22 PM'},
-    {'text': 'ChatBot', 'isMe': false, 'time': '5:30 PM'}
-    */
+    
   ];
 
   void _sendMessage() async {
     final userMessage = _controller.text.trim();
-    String url = "https://profdanielvieira95-api-agro-langflow.hf.space/api/v1/run/fa47011f-110e-4e0a-b70d-e7c4c1ff6bf6";
-    //https://profdanielvieira95-api-agro-langflow.hf.space/api/v1/run/fa47011f-110e-4e0a-b70d-e7c4c1ff6bf6
+    String url = "https://pedroguerra8-chatbot-integrador.hf.space/api/v1/run/08a76ee1-d106-4b04-aacf-221076e57cc9";
     if (_controller.text.trim().isEmpty) return;
     setState(() {
       _messages.add({
@@ -108,7 +93,7 @@ class _ChatScreenState extends State<ChatScreen> {
             child: Icon(Icons.person),
           ),
           title: Text(
-            'Senai',
+            'AGROTECH Solutions',
             style: TextStyle(color: Colors.white),
           ),
         ),
@@ -132,25 +117,57 @@ class _ChatScreenState extends State<ChatScreen> {
             child: Row(
               children: [
                 Expanded(
-                  child: TextField(
-                    controller: _controller,
-                    decoration: InputDecoration(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[100],
+                      borderRadius: BorderRadius.circular(24),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 4,
+                          offset: Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: TextField(
+                      controller: _controller,
+                      decoration: InputDecoration(
                         hintText: 'Digite sua mensagem',
-                        border: InputBorder.none),
+                        border: InputBorder.none,
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      ),
+                    ),
                   ),
                 ),
-                IconButton(
+                SizedBox(width: 8),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.teal,
+                    shape: BoxShape.circle,
+                  ),
+                  child: IconButton(
                     onPressed: _sendMessage,
                     icon: Icon(
-                      Icons.send,
-                      color: Colors.teal,
-                    )),
-                IconButton(
+                      Icons.send_rounded,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 4),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.red[300],
+                    shape: BoxShape.circle,
+                  ),
+                  child: IconButton(
                     onPressed: _limparMessages,
                     icon: Icon(
-                      Icons.clear,
-                      color: Colors.teal,
-                    )),
+                      Icons.delete_outline,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
