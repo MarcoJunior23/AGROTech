@@ -19,7 +19,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   void _sendMessage() async {
     final userMessage = _controller.text.trim();
-    String url = "https://pedroguerra8-chatbot-integrador.hf.space/api/v1/run/08a76ee1-d106-4b04-aacf-221076e57cc9";
+    String url = "https://pedroguerra8-chatbot-integrador.hf.space/api/v1/run/99463d46-5a42-4c52-9eaa-c2816ee95d89";
     if (_controller.text.trim().isEmpty) return;
     setState(() {
       _messages.add({
