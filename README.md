@@ -32,7 +32,18 @@ Tudo isso com uma interface moderna, intuitiva e pensada para facilitar o dia a 
 Sugestões, melhorias e colaborações são super bem-vindas! Abra uma issue ou envie um pull request.
 
 ## 📸 Screenshots
-Em breve!
+
+### Dashboard
+![Dashboard](images/screen_dashboard.png)
+
+### Monitoramento
+![Monitoramento](images/screen_monitoramento.png)
+
+### Controle Remoto
+![Controle](images/screen_acionamento.png)
+
+### Chatbot
+![Chatbot](images/screen_chatbot.png)
 
 ---
 

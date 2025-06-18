@@ -39,27 +39,27 @@ class _ColetaDadosScreenState extends State<ColetaDadosScreen> {
         value: '80%',
         status: 'Bom',
         statusColor: Colors.blue,
-        imagePath: 'images/planta.png'),
+        imagePath: 'images/Umidade.png'),
 
     SensorData(
         title: 'Temperatura',
         value: '25 ºC',
         status: 'Bom',
         statusColor: Colors.blue,
-        imagePath: 'images/2.png'),
+        imagePath: 'images/Temperatura.png'),
     SensorData(
         title: 'Luminosidade',
         value: '80%',
         status: 'Bom',
         statusColor: Colors.blue,
-        imagePath: 'images/3.png'),
+        imagePath: 'images/planta.png'),
 
     SensorData(
         title: 'Niveis de ph',
         value: '2',
         status: 'Ruim',
         statusColor: Colors.red,
-        imagePath: 'images/planta.png'),
+        imagePath: 'images/pH.png'),
   ];
 
   @override
